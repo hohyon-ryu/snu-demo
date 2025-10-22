@@ -110,185 +110,223 @@ function Mangles() {
 
   return (
     <div className="mangles-container">
+      {/* Header */}
       <header className="mangles-header">
-        <button className="back-button" onClick={() => navigate('/')}>
-          ← 돌아가기
-        </button>
-        <h1>맹글즈</h1>
-        <p className="subtitle">리필스테이션 스마트 영수증</p>
+        <div className="header-content">
+          <button className="back-button" onClick={() => navigate('/')}>
+            <span className="back-arrow">←</span>
+            <span className="back-text">뒤로</span>
+          </button>
+          <div className="header-title-group">
+            <h1 className="header-title">맹글즈</h1>
+            <p className="header-subtitle">리필스테이션 스마트 영수증</p>
+          </div>
+        </div>
       </header>
 
+      {/* Main Content */}
       <div className="mangles-content">
-        {/* Environmental Impact Dashboard */}
-        <section className="impact-dashboard">
-          <h2>나의 환경 영향</h2>
-          <div className="stats-grid">
-            <div className="stat-card">
-              <div className="stat-icon">🌱</div>
-              <div className="stat-value">{totalStats.totalCO2}g</div>
-              <div className="stat-label">CO₂ 절감</div>
+        {/* Summary Cards */}
+        <section className="summary-section">
+          <div className="summary-grid">
+            <div className="summary-card">
+              <div className="summary-label">총 지출</div>
+              <div className="summary-value primary">{totalStats.totalSpent.toLocaleString()}</div>
+              <div className="summary-unit">원</div>
             </div>
-            <div className="stat-card">
-              <div className="stat-icon">♻️</div>
-              <div className="stat-value">{totalStats.totalPlastic}g</div>
-              <div className="stat-label">플라스틱 절감</div>
+            <div className="summary-card">
+              <div className="summary-label">CO₂ 절감</div>
+              <div className="summary-value">{totalStats.totalCO2.toLocaleString()}</div>
+              <div className="summary-unit">그램</div>
             </div>
-            <div className="stat-card">
-              <div className="stat-icon">🛒</div>
-              <div className="stat-value">{totalStats.totalPurchases}회</div>
-              <div className="stat-label">리필 구매</div>
+            <div className="summary-card">
+              <div className="summary-label">플라스틱 절감</div>
+              <div className="summary-value">{totalStats.totalPlastic.toLocaleString()}</div>
+              <div className="summary-unit">그램</div>
             </div>
-            <div className="stat-card">
-              <div className="stat-icon">💰</div>
-              <div className="stat-value">{totalStats.totalSpent.toLocaleString()}원</div>
-              <div className="stat-label">총 지출</div>
+            <div className="summary-card">
+              <div className="summary-label">리필 구매</div>
+              <div className="summary-value">{totalStats.totalPurchases}</div>
+              <div className="summary-unit">건</div>
             </div>
           </div>
         </section>
 
-        {/* Receipt History */}
-        <section className="receipt-history">
-          <h2>구매 기록</h2>
-          <div className="receipt-list">
-            {mockReceipts.map((receipt) => (
-              <div
-                key={receipt.id}
-                className="receipt-item"
-                onClick={() => setSelectedReceipt(receipt)}
-              >
-                <div className="receipt-header">
-                  <span className="receipt-store">{receipt.storeName}</span>
-                  <span className="receipt-date">{receipt.date}</span>
-                </div>
-                <div className="receipt-summary">
-                  <span>{receipt.items.length}개 품목</span>
-                  <span className="receipt-total">{receipt.totalPrice.toLocaleString()}원</span>
-                </div>
-                <div className="receipt-impact">
-                  <span className="impact-badge">
-                    🌱 CO₂ {receipt.totalCO2Saved}g 절감
-                  </span>
-                  <span className="impact-badge">
-                    ♻️ 플라스틱 {receipt.totalPlasticSaved}g 절감
-                  </span>
-                </div>
-              </div>
-            ))}
+        {/* Transactions Table */}
+        <section className="transactions-section">
+          <div className="section-header">
+            <h2 className="section-title">거래 내역</h2>
+            <div className="section-count">{mockReceipts.length} 건</div>
           </div>
-        </section>
 
-        {/* Detailed Receipt View */}
-        {selectedReceipt && (
-          <section className="receipt-detail">
-            <div className="detail-header">
-              <h2>영수증 상세</h2>
-              <button
-                className="close-button"
-                onClick={() => setSelectedReceipt(null)}
-              >
-                ✕
-              </button>
-            </div>
-
-            <div className="receipt-card">
-              <div className="receipt-card-header">
-                <h3>{selectedReceipt.storeName}</h3>
-                <p>{selectedReceipt.date}</p>
-                <p className="receipt-id">{selectedReceipt.id}</p>
-              </div>
-
-              <div className="receipt-items">
-                <h4>구매 품목</h4>
-                {selectedReceipt.items.map((item) => (
-                  <div key={item.id} className="item-detail">
-                    <div className="item-main">
-                      <div className="item-name-category">
-                        <span className="item-name">{item.name}</span>
-                        <span className="item-category">{item.category}</span>
-                      </div>
-                      <span className="item-price">{item.price.toLocaleString()}원</span>
-                    </div>
-                    <div className="item-info">
-                      <span className="item-weight">{item.weight}g</span>
-                      <span className="item-origin">📍 {item.origin}</span>
-                    </div>
-                    <div className="item-impact">
-                      <span className="impact-detail">🌱 CO₂ {item.co2Saved}g</span>
-                      <span className="impact-detail">♻️ 플라스틱 {item.plasticSaved}g</span>
-                    </div>
-                  </div>
+          <div className="table-container">
+            <table className="transactions-table">
+              <thead>
+                <tr>
+                  <th className="col-date">날짜</th>
+                  <th className="col-store">매장</th>
+                  <th className="col-items">품목</th>
+                  <th className="col-co2">CO₂ 절감</th>
+                  <th className="col-plastic">플라스틱 절감</th>
+                  <th className="col-amount">금액</th>
+                  <th className="col-action"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {mockReceipts.map((receipt) => (
+                  <tr key={receipt.id} className="transaction-row">
+                    <td className="col-date">{receipt.date}</td>
+                    <td className="col-store">{receipt.storeName}</td>
+                    <td className="col-items">{receipt.items.length}개 품목</td>
+                    <td className="col-co2">{receipt.totalCO2Saved}g</td>
+                    <td className="col-plastic">{receipt.totalPlasticSaved}g</td>
+                    <td className="col-amount">{receipt.totalPrice.toLocaleString()}원</td>
+                    <td className="col-action">
+                      <button
+                        className="view-button"
+                        onClick={() => setSelectedReceipt(receipt)}
+                      >
+                        상세보기
+                      </button>
+                    </td>
+                  </tr>
                 ))}
-              </div>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-              <div className="receipt-total-section">
-                <div className="total-row">
-                  <span>총 금액</span>
-                  <span className="total-amount">{selectedReceipt.totalPrice.toLocaleString()}원</span>
-                </div>
-                <div className="total-impact">
-                  <div className="impact-row">
-                    <span>총 CO₂ 절감</span>
-                    <span className="impact-value">{selectedReceipt.totalCO2Saved}g</span>
-                  </div>
-                  <div className="impact-row">
-                    <span>총 플라스틱 절감</span>
-                    <span className="impact-value">{selectedReceipt.totalPlasticSaved}g</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
+        {/* Category Breakdown */}
+        <section className="category-section">
+          <div className="section-header">
+            <h2 className="section-title">카테고리별 분석</h2>
+          </div>
 
-        {/* Consumption Pattern Analysis */}
-        <section className="consumption-pattern">
-          <h2>소비 패턴 분석</h2>
-          <div className="pattern-grid">
-            <div className="pattern-card">
-              <h3>자주 구매하는 카테고리</h3>
-              <div className="category-list">
-                <div className="category-item">
-                  <span className="category-name">세제</span>
-                  <div className="category-bar">
-                    <div className="category-fill" style={{ width: '80%' }}></div>
-                  </div>
-                  <span className="category-count">4회</span>
-                </div>
-                <div className="category-item">
-                  <span className="category-name">바디케어</span>
-                  <div className="category-bar">
-                    <div className="category-fill" style={{ width: '60%' }}></div>
-                  </div>
-                  <span className="category-count">3회</span>
-                </div>
-                <div className="category-item">
-                  <span className="category-name">식품</span>
-                  <div className="category-bar">
-                    <div className="category-fill" style={{ width: '40%' }}></div>
-                  </div>
-                  <span className="category-count">2회</span>
-                </div>
+          <div className="category-grid">
+            <div className="category-card">
+              <div className="category-header">
+                <span className="category-name">세제</span>
+                <span className="category-percentage">40%</span>
+              </div>
+              <div className="category-bar">
+                <div className="category-fill" style={{ width: '40%' }}></div>
+              </div>
+              <div className="category-stats">
+                <span className="category-stat">4회 구매</span>
+                <span className="category-stat">14,600원</span>
               </div>
             </div>
 
-            <div className="pattern-card">
-              <h3>월별 리필 트렌드</h3>
-              <div className="trend-chart">
-                <div className="chart-bar" style={{ height: '60%' }}>
-                  <span className="chart-label">8월</span>
-                </div>
-                <div className="chart-bar" style={{ height: '75%' }}>
-                  <span className="chart-label">9월</span>
-                </div>
-                <div className="chart-bar" style={{ height: '90%' }}>
-                  <span className="chart-label">10월</span>
-                </div>
+            <div className="category-card">
+              <div className="category-header">
+                <span className="category-name">바디케어</span>
+                <span className="category-percentage">35%</span>
               </div>
-              <p className="trend-insight">매달 리필 횟수가 증가하고 있어요!</p>
+              <div className="category-bar">
+                <div className="category-fill" style={{ width: '35%' }}></div>
+              </div>
+              <div className="category-stats">
+                <span className="category-stat">3회 구매</span>
+                <span className="category-stat">13,900원</span>
+              </div>
+            </div>
+
+            <div className="category-card">
+              <div className="category-header">
+                <span className="category-name">식품</span>
+                <span className="category-percentage">25%</span>
+              </div>
+              <div className="category-bar">
+                <div className="category-fill" style={{ width: '25%' }}></div>
+              </div>
+              <div className="category-stats">
+                <span className="category-stat">2회 구매</span>
+                <span className="category-stat">7,800원</span>
+              </div>
             </div>
           </div>
         </section>
       </div>
+
+      {/* Receipt Detail Modal */}
+      {selectedReceipt && (
+        <div className="modal-overlay" onClick={() => setSelectedReceipt(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <div className="modal-title-group">
+                <h3 className="modal-title">영수증 상세</h3>
+                <p className="modal-id">{selectedReceipt.id}</p>
+              </div>
+              <button className="modal-close" onClick={() => setSelectedReceipt(null)}>
+                ✕
+              </button>
+            </div>
+
+            <div className="modal-body">
+              {/* Receipt Info */}
+              <div className="receipt-info">
+                <div className="info-row">
+                  <span className="info-label">매장명</span>
+                  <span className="info-value">{selectedReceipt.storeName}</span>
+                </div>
+                <div className="info-row">
+                  <span className="info-label">거래일시</span>
+                  <span className="info-value">{selectedReceipt.date}</span>
+                </div>
+              </div>
+
+              {/* Items Table */}
+              <div className="items-section">
+                <h4 className="items-title">구매 품목</h4>
+                <table className="items-table">
+                  <thead>
+                    <tr>
+                      <th>품목명</th>
+                      <th>중량</th>
+                      <th>금액</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {selectedReceipt.items.map((item) => (
+                      <tr key={item.id}>
+                        <td>
+                          <div className="item-name">{item.name}</div>
+                          <div className="item-category">{item.category}</div>
+                        </td>
+                        <td>{item.weight}g</td>
+                        <td className="item-price">{item.price.toLocaleString()}원</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Environmental Impact */}
+              <div className="impact-section">
+                <h4 className="impact-title">환경 영향</h4>
+                <div className="impact-grid">
+                  <div className="impact-item">
+                    <span className="impact-label">CO₂ 절감</span>
+                    <span className="impact-value">{selectedReceipt.totalCO2Saved}g</span>
+                  </div>
+                  <div className="impact-item">
+                    <span className="impact-label">플라스틱 절감</span>
+                    <span className="impact-value">{selectedReceipt.totalPlasticSaved}g</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Total */}
+              <div className="receipt-total">
+                <div className="total-row">
+                  <span className="total-label">총 금액</span>
+                  <span className="total-amount">{selectedReceipt.totalPrice.toLocaleString()}원</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
