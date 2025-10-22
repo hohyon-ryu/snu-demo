@@ -1,24 +1,32 @@
+/* Calm-inspired Accessible Design System */
 .dreamgarden-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
-  background-color: #ffffff;
+  padding: 0;
+  background-color: #fafafa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica', Arial, sans-serif;
+  min-height: 100vh;
 }
 
-/* Header */
+/* Header - Clean and Spacious */
 .dreamgarden-header {
-  margin-bottom: 2rem;
+  background-color: #ffffff;
+  padding: 3rem 4rem 2rem;
+  margin-bottom: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .back-button {
   background: none;
   border: none;
-  font-size: 1rem;
-  color: #666;
+  font-size: 1.125rem;
+  color: #666666;
   cursor: pointer;
-  padding: 0.5rem 0;
-  margin-bottom: 1rem;
-  transition: color 0.2s;
+  padding: 0.75rem 0;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 .back-button:hover {
@@ -26,60 +34,67 @@
 }
 
 .header-content {
-  text-align: center;
-  margin-bottom: 2rem;
+  text-align: left;
+  max-width: 800px;
 }
 
 .project-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 0.5rem;
+  color: #000000;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .project-subtitle {
-  font-size: 1.25rem;
-  color: #666;
+  font-size: 1.5rem;
+  color: #666666;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
-/* User Profile */
+/* User Profile - Calm & Accessible */
 .user-profile {
-  background: linear-gradient(135deg, #A3E635 0%, #84cc16 100%);
-  border-radius: 16px;
-  padding: 2rem;
+  background-color: #000000;
+  padding: 4rem;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  gap: 3rem;
+  margin-bottom: 0;
   color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .profile-avatar {
-  width: 80px;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: #A3E635;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 3.5rem;
+  flex-shrink: 0;
 }
 
 .profile-info h2 {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
 }
 
 .profile-info p {
-  opacity: 0.9;
-  font-size: 1rem;
+  opacity: 0.7;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 .profile-stats {
   margin-left: auto;
   display: flex;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .stat {
@@ -88,97 +103,120 @@
 
 .stat-number {
   display: block;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
+  color: #A3E635;
+  margin-bottom: 0.25rem;
 }
 
 .stat-label {
-  font-size: 0.875rem;
-  opacity: 0.9;
+  font-size: 1rem;
+  opacity: 0.7;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
-/* Tab Navigation */
+/* Tab Navigation - Clean & Spacious */
 .tab-navigation {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid #f0f0f0;
+  gap: 0;
+  margin-bottom: 0;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .tab {
   background: none;
   border: none;
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
+  padding: 1.75rem 3rem;
+  font-size: 1.125rem;
   font-weight: 500;
-  color: #666;
+  color: #666666;
   cursor: pointer;
   border-bottom: 3px solid transparent;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
+  letter-spacing: 0.01em;
+  flex: 1;
+  text-align: center;
 }
 
 .tab:hover {
-  color: #A3E635;
+  color: #000000;
+  background-color: #fafafa;
 }
 
 .tab.active {
-  color: #A3E635;
+  color: #000000;
   border-bottom-color: #A3E635;
+  background-color: #ffffff;
 }
 
-/* Content Area */
+/* Content Area - Generous Spacing */
 .content-area {
-  margin-bottom: 3rem;
+  margin-bottom: 0;
+  padding: 4rem;
+  background-color: #fafafa;
+  min-height: 60vh;
 }
 
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .section-header h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: -0.01em;
 }
 
 .date {
-  color: #666;
-  font-size: 1rem;
+  color: #666666;
+  font-size: 1.125rem;
+  font-weight: 400;
 }
 
 .period {
-  color: #666;
-  font-size: 0.875rem;
-  background: #f5f5f5;
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
+  color: #666666;
+  font-size: 1rem;
+  background: #ffffff;
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
-/* Daily Activities */
+/* Daily Activities - Calm Timeline */
 .activities-timeline {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 .activity-card {
   display: flex;
-  gap: 1.5rem;
-  background: #fafafa;
-  padding: 1.5rem;
-  border-radius: 12px;
+  gap: 3rem;
+  background: #ffffff;
+  padding: 2.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   border-left: 4px solid #A3E635;
+  transition: box-shadow 0.3s ease;
+}
+
+.activity-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .activity-time {
-  font-weight: 600;
+  font-weight: 700;
   color: #A3E635;
-  min-width: 60px;
-  font-size: 1.125rem;
+  min-width: 80px;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
 }
 
 .activity-content {
@@ -188,133 +226,149 @@
 .activity-header {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .activity-icon {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .activity-header h4 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: -0.01em;
 }
 
 .activity-description {
-  color: #666;
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
+  color: #666666;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
 }
 
 .activity-images {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .image-placeholder {
-  width: 60px;
-  height: 60px;
-  background: #e0e0e0;
-  border-radius: 8px;
+  width: 80px;
+  height: 80px;
+  background: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .add-activity-button {
   width: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
   background: #ffffff;
-  border: 2px dashed #A3E635;
-  border-radius: 12px;
+  border: 2px solid #A3E635;
   color: #A3E635;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
+  letter-spacing: 0.01em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .add-activity-button:hover {
-  background: #f0fdf4;
-}
-
-/* Communication */
-.unread-badge {
   background: #A3E635;
   color: #ffffff;
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.875rem;
-  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(163, 230, 53, 0.25);
+}
+
+/* Communication - Clean Messages */
+.unread-badge {
+  background: #A3E635;
+  color: #000000;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .messages-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 .message-card {
-  background: #fafafa;
-  padding: 1.25rem;
-  border-radius: 12px;
+  background: #ffffff;
+  padding: 2.5rem;
   border-left: 4px solid #A3E635;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.message-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .message-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .sender-info {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .sender-name {
-  font-weight: 600;
-  color: #1a1a1a;
-  font-size: 1rem;
+  font-weight: 700;
+  color: #000000;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
 }
 
 .sender-role {
   background: #A3E635;
-  color: #ffffff;
-  padding: 0.125rem 0.5rem;
-  border-radius: 8px;
-  font-size: 0.75rem;
-  font-weight: 500;
+  color: #000000;
+  padding: 0.375rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .message-time {
-  color: #999;
-  font-size: 0.875rem;
+  color: #999999;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .message-content {
-  color: #444;
-  line-height: 1.6;
+  color: #666666;
+  line-height: 1.8;
+  font-size: 1.125rem;
 }
 
 .message-input-area {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
+  background: #ffffff;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .message-input {
   flex: 1;
-  padding: 1rem;
+  padding: 1.25rem;
   border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  font-size: 1rem;
-  transition: border-color 0.2s;
+  font-size: 1.125rem;
+  transition: border-color 0.3s ease;
+  font-weight: 400;
 }
 
 .message-input:focus {
@@ -323,88 +377,95 @@
 }
 
 .send-button {
-  padding: 1rem 2rem;
+  padding: 1.25rem 3rem;
   background: #A3E635;
-  color: #ffffff;
+  color: #000000;
   border: none;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.125rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
+  letter-spacing: 0.01em;
 }
 
 .send-button:hover {
-  background: #84cc16;
+  background: #000000;
+  color: #A3E635;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Progress */
+/* Progress - Clear Metrics */
 .progress-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 .progress-card {
-  background: #fafafa;
-  padding: 1.5rem;
-  border-radius: 12px;
+  background: #ffffff;
+  padding: 2.5rem;
   border-top: 4px solid #A3E635;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.progress-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .progress-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .progress-header h4 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: -0.01em;
 }
 
 .improvement {
   color: #A3E635;
-  font-weight: 600;
-  font-size: 0.875rem;
+  font-weight: 700;
+  font-size: 1.125rem;
 }
 
 .progress-bar-container {
-  background: #e0e0e0;
-  height: 12px;
-  border-radius: 6px;
+  background: #f0f0f0;
+  height: 16px;
   overflow: hidden;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .progress-bar {
-  background: linear-gradient(90deg, #A3E635 0%, #84cc16 100%);
+  background: #A3E635;
   height: 100%;
-  border-radius: 6px;
-  transition: width 0.3s ease;
+  transition: width 0.5s ease;
 }
 
 .progress-percentage {
-  color: #666;
-  font-size: 0.875rem;
-  font-weight: 600;
+  color: #666666;
+  font-size: 1.125rem;
+  font-weight: 700;
 }
 
 .insights-box {
-  background: #f0fdf4;
-  border: 2px solid #A3E635;
-  border-radius: 12px;
-  padding: 1.5rem;
+  background: #ffffff;
+  border: 3px solid #A3E635;
+  padding: 2.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .insights-box h4 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
 }
 
 .insights-box ul {
@@ -414,11 +475,12 @@
 }
 
 .insights-box li {
-  color: #444;
+  color: #666666;
   line-height: 1.8;
-  padding-left: 1.5rem;
+  padding-left: 2rem;
   position: relative;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
 }
 
 .insights-box li:before {
@@ -427,65 +489,95 @@
   left: 0;
   color: #A3E635;
   font-weight: 700;
+  font-size: 1.25rem;
 }
 
-/* Features */
+/* Features - Spacious Grid */
 .features-section {
-  margin-top: 3rem;
-  padding-top: 3rem;
-  border-top: 2px solid #f0f0f0;
+  margin-top: 0;
+  padding: 4rem;
+  background-color: #ffffff;
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .features-section h3 {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 2rem;
-  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 3rem;
+  text-align: left;
+  letter-spacing: -0.01em;
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
 }
 
 .feature-item {
-  text-align: center;
-  padding: 1.5rem;
+  text-align: left;
+  padding: 2.5rem;
   background: #fafafa;
-  border-radius: 12px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .feature-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(163, 230, 53, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .feature-icon {
-  font-size: 3rem;
+  font-size: 3.5rem;
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .feature-item h4 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
 }
 
 .feature-item p {
-  color: #666;
-  line-height: 1.5;
-  font-size: 0.9375rem;
+  color: #666666;
+  line-height: 1.8;
+  font-size: 1.125rem;
 }
 
-/* Responsive Design */
+/* Responsive Design - Maintain Accessibility */
+@media (max-width: 1024px) {
+  .dreamgarden-header {
+    padding: 2rem 2rem 1.5rem;
+  }
+
+  .project-title {
+    font-size: 2.5rem;
+  }
+
+  .project-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .user-profile {
+    padding: 3rem 2rem;
+    gap: 2rem;
+  }
+
+  .content-area {
+    padding: 3rem 2rem;
+  }
+
+  .features-section {
+    padding: 3rem 2rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .dreamgarden-container {
-    padding: 1rem;
+  .dreamgarden-header {
+    padding: 1.5rem 1.5rem 1rem;
   }
 
   .project-title {
@@ -493,42 +585,99 @@
   }
 
   .project-subtitle {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
 
   .user-profile {
     flex-direction: column;
     text-align: center;
+    padding: 2.5rem 1.5rem;
+    gap: 1.5rem;
   }
 
   .profile-stats {
     margin-left: 0;
+    gap: 3rem;
   }
 
   .tab-navigation {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .tab {
     white-space: nowrap;
-    padding: 0.75rem 1rem;
-    font-size: 0.9375rem;
+    padding: 1.5rem 2rem;
+    font-size: 1rem;
+    flex: none;
+    min-width: 150px;
+  }
+
+  .content-area {
+    padding: 2rem 1.5rem;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .section-header h3 {
+    font-size: 1.75rem;
   }
 
   .activity-card {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .activity-time {
+    min-width: auto;
+    font-size: 1.25rem;
+  }
+
+  .activity-header h4 {
+    font-size: 1.25rem;
+  }
+
+  .activity-description {
+    font-size: 1rem;
+  }
+
+  .message-card {
+    padding: 2rem 1.5rem;
   }
 
   .message-input-area {
     flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .send-button {
+    width: 100%;
+    padding: 1rem;
   }
 
   .progress-cards {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .progress-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .features-section {
+    padding: 2.5rem 1.5rem;
   }
 
   .features-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .feature-item {
+    padding: 2rem 1.5rem;
   }
 }
