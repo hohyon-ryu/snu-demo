@@ -713,63 +713,215 @@ function InfinityAlmeng() {
           </div>
         )}
 
-        {/* Loyalty Tab */}
+        {/* Loyalty Tab - 환경 마일리지 */}
         {activeTab === 'loyalty' && (
           <div className="ia-section">
-            <div className="ia-icon-large">🎁</div>
-            <h2>적립 혜택</h2>
+            <div className="ia-icon-large">🌱</div>
+            <h2>환경 마일리지</h2>
             <p className="ia-description">
-              제로웨이스트 실천으로 다양한 혜택을 받으세요.
+              당신의 작은 실천이 만드는 큰 변화를 확인하세요
             </p>
-            <div className="ia-card">
-              <h3>나의 포인트</h3>
-              <div className="points-display">
-                <span className="points-value">1,250</span>
-                <span className="points-label">포인트</span>
+
+            {/* 포인트 적립 */}
+            <div className="ia-card points-card">
+              <h3>💚 나의 포인트</h3>
+              <div className="points-display-large">
+                <div className="points-circle">
+                  <span className="points-value">1,250</span>
+                  <span className="points-label">P</span>
+                </div>
               </div>
-              <div className="points-earned">
-                <span>이번 구매로</span>
-                <span className="earned-amount">+{Math.floor(calculateTotal() * 0.05)}P</span>
+              {weight > 0 && selectedProduct && (
+                <div className="points-earned-banner">
+                  <span className="earned-icon">🎉</span>
+                  <span className="earned-text">
+                    이번 구매로 <strong>+{Math.floor(calculateTotal() * 0.05)}P</strong> 적립!
+                  </span>
+                </div>
+              )}
+              <div className="points-usage">
+                <p>1,000 포인트당 1,000원으로 사용 가능</p>
+                <p>다음 구매시 자동으로 적용됩니다</p>
               </div>
             </div>
-            <div className="ia-card">
-              <h3>환경 기여도</h3>
-              <div className="eco-stats">
-                <div className="eco-stat-item">
-                  <div className="eco-icon">🌍</div>
-                  <div className="eco-value">12회</div>
-                  <div className="eco-label">리필 횟수</div>
-                </div>
-                <div className="eco-stat-item">
+
+            {/* 환경 기여도 */}
+            <div className="ia-card eco-impact-card">
+              <h3>🌍 나의 환경 기여도</h3>
+              <div className="eco-stats-grid">
+                <div className="eco-stat-item large">
                   <div className="eco-icon">♻️</div>
-                  <div className="eco-value">3.2kg</div>
+                  <div className="eco-value">{(calculateTotalPlasticSaved() / 1000).toFixed(1)}kg</div>
                   <div className="eco-label">플라스틱 절감</div>
+                  <div className="eco-comparison">
+                    = 페트병 {Math.floor(calculateTotalPlasticSaved() / 30)}개 분량
+                  </div>
+                </div>
+                <div className="eco-stat-item large">
+                  <div className="eco-icon">🌱</div>
+                  <div className="eco-value">{calculateTotalCO2Saved()}kg</div>
+                  <div className="eco-label">CO2 감축</div>
+                  <div className="eco-comparison">
+                    = 소나무 {Math.floor(Number(calculateTotalCO2Saved()) / 6.6)}그루 심은 효과
+                  </div>
                 </div>
                 <div className="eco-stat-item">
-                  <div className="eco-icon">🌱</div>
-                  <div className="eco-value">15.8kg</div>
-                  <div className="eco-label">CO2 감축</div>
+                  <div className="eco-icon">🔄</div>
+                  <div className="eco-value">{purchaseHistory.length + 1}</div>
+                  <div className="eco-label">총 리필 횟수</div>
+                </div>
+                <div className="eco-stat-item">
+                  <div className="eco-icon">💧</div>
+                  <div className="eco-value">
+                    {Math.floor(calculateTotalPlasticSaved() * 2.5 / 1000)}L
+                  </div>
+                  <div className="eco-label">물 절약</div>
                 </div>
               </div>
             </div>
-            <div className="benefits-list">
-              <h3>멤버십 혜택</h3>
-              <div className="benefit-item">
-                <span className="benefit-icon">✓</span>
-                <span>구매 금액의 5% 포인트 적립</span>
+
+            {/* 환경 마일리지 레벨 */}
+            <div className="ia-card level-card">
+              <h3>🏆 환경지킴이 레벨</h3>
+              <div className="level-badge">
+                <div className="badge-icon">🌿</div>
+                <div className="badge-info">
+                  <h4>그린 스타터</h4>
+                  <p>Level 2</p>
+                </div>
               </div>
-              <div className="benefit-item">
-                <span className="benefit-icon">✓</span>
-                <span>생일 월 10% 추가 할인</span>
+              <div className="level-progress">
+                <div className="progress-bar">
+                  <div className="progress-fill" style={{ width: '40%' }}></div>
+                </div>
+                <p>다음 레벨까지 리필 6회 남음</p>
               </div>
-              <div className="benefit-item">
-                <span className="benefit-icon">✓</span>
-                <span>월 1회 무료 배송 쿠폰</span>
+              <div className="next-rewards">
+                <h5>다음 레벨 혜택</h5>
+                <ul>
+                  <li>포인트 적립률 5% → 7%</li>
+                  <li>매월 무료 리필 쿠폰 1장</li>
+                  <li>친구 초대 보너스 포인트</li>
+                </ul>
               </div>
-              <div className="benefit-item">
-                <span className="benefit-icon">✓</span>
-                <span>신제품 사전 체험 기회</span>
+            </div>
+
+            {/* 카카오톡 알림 연동 */}
+            <div className="ia-card kakao-card">
+              <h3>💬 카카오톡 알림 서비스</h3>
+              <p className="kakao-desc">
+                리필 주기 알림, 신상품 소식, 할인 정보를 받아보세요
+              </p>
+              <button className="kakao-connect-btn">
+                <span className="kakao-icon">💬</span>
+                <span>카카오톡 채널 추가하기</span>
+              </button>
+              <div className="kakao-benefits">
+                <div className="benefit-item">
+                  <span className="benefit-icon">🔔</span>
+                  <span>재구매 예측 알림</span>
+                </div>
+                <div className="benefit-item">
+                  <span className="benefit-icon">📦</span>
+                  <span>신제품 입고 안내</span>
+                </div>
+                <div className="benefit-item">
+                  <span className="benefit-icon">🎁</span>
+                  <span>특별 할인 혜택</span>
+                </div>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* History Tab - 구매 내역 */}
+        {activeTab === 'history' && (
+          <div className="ia-section">
+            <div className="ia-icon-large">📜</div>
+            <h2>구매 내역</h2>
+            <p className="ia-description">
+              내가 구매한 제품의 상세 정보와 환경 기여도를 확인하세요
+            </p>
+
+            <div className="history-summary">
+              <div className="summary-stat">
+                <span className="stat-value">{purchaseHistory.length + 1}</span>
+                <span className="stat-label">총 구매 횟수</span>
+              </div>
+              <div className="summary-stat">
+                <span className="stat-value">
+                  {(calculateTotalPlasticSaved() / 1000).toFixed(1)}kg
+                </span>
+                <span className="stat-label">플라스틱 절감</span>
+              </div>
+            </div>
+
+            <div className="history-list">
+              {/* 현재 구매 (시뮬레이션) */}
+              {selectedProduct && weight > 0 && (
+                <div className="history-item current">
+                  <div className="history-header">
+                    <div className="history-date">
+                      <span className="date-badge">방금 전</span>
+                      <span className="date-text">2025-10-22</span>
+                    </div>
+                    <div className="history-status completed">결제완료</div>
+                  </div>
+                  <div className="history-body">
+                    <div className="history-product">
+                      <div className="product-icon">🧴</div>
+                      <div className="product-details">
+                        <h4>{selectedProduct.name}</h4>
+                        <p className="product-meta">
+                          {weight}g × {selectedProduct.pricePerGram}원
+                        </p>
+                      </div>
+                    </div>
+                    <div className="history-price">
+                      {calculateTotal().toLocaleString()}원
+                    </div>
+                  </div>
+                  <div className="history-footer">
+                    <div className="eco-badge">
+                      ♻️ 플라스틱 {Math.floor(weight * 0.3)}g 절감
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* 과거 구매 내역 */}
+              {purchaseHistory.map((item, index) => (
+                <div key={index} className="history-item">
+                  <div className="history-header">
+                    <div className="history-date">
+                      <span className="date-text">{item.date}</span>
+                    </div>
+                    <div className="history-status completed">구매완료</div>
+                  </div>
+                  <div className="history-body">
+                    <div className="history-product">
+                      <div className="product-icon">🧴</div>
+                      <div className="product-details">
+                        <h4>{item.productName}</h4>
+                        <p className="product-meta">{item.weight}g</p>
+                      </div>
+                    </div>
+                    <div className="history-price">
+                      {item.price.toLocaleString()}원
+                    </div>
+                  </div>
+                  <div className="history-footer">
+                    <div className="eco-badge">
+                      ♻️ 플라스틱 {item.plasticSaved}g 절감
+                    </div>
+                    <button className="review-btn">리뷰 작성</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="info-banner">
+              <p>📱 카카오톡 채널에서 상세 구매 내역과 제품 정보를 확인할 수 있습니다</p>
             </div>
           </div>
         )}
@@ -777,8 +929,62 @@ function InfinityAlmeng() {
 
       {/* Footer */}
       <footer className="ia-footer">
-        <p>인피니티알맹 - 지속 가능한 소비를 위한 올인원 솔루션</p>
-        <p className="footer-note">서울대학교 정보문화학 프로젝트</p>
+        <div className="footer-content">
+          <div className="footer-main">
+            <h3>인피니티알맹</h3>
+            <p className="footer-tagline">
+              매장 입장부터 결제, 재방문까지<br />
+              리필 여정 전체를 개인 스마트폰 하나로 완결하는 ALL-IN-ONE 솔루션
+            </p>
+          </div>
+
+          <div className="footer-features">
+            <div className="footer-feature">
+              <span className="feature-icon">📱</span>
+              <span>NFC 태그 자동 입장</span>
+            </div>
+            <div className="footer-feature">
+              <span className="feature-icon">⚖️</span>
+              <span>블루투스 저울 연동</span>
+            </div>
+            <div className="footer-feature">
+              <span className="feature-icon">💳</span>
+              <span>OKPOS 간편 결제</span>
+            </div>
+            <div className="footer-feature">
+              <span className="feature-icon">💬</span>
+              <span>카카오톡 알림톡</span>
+            </div>
+          </div>
+
+          <div className="footer-project-info">
+            <p className="project-label">서울대학교 창의연구실습 프로젝트</p>
+            <p className="project-goal">
+              목표: 리필스테이션 이용 과정을 간소화하여<br />
+              초기 사용자의 진입 장벽을 낮추고 리필 문화 확산
+            </p>
+          </div>
+
+          <div className="footer-stats">
+            <div className="stat">
+              <span className="stat-icon">🌍</span>
+              <span className="stat-text">전 세계 MSW 발생량: 21억톤 → 38억톤 (2050년)</span>
+            </div>
+            <div className="stat">
+              <span className="stat-icon">♻️</span>
+              <span className="stat-text">국내 리필 매장: 26곳 (2024년 기준)</span>
+            </div>
+            <div className="stat">
+              <span className="stat-icon">📊</span>
+              <span className="stat-text">리필스테이션 인지자 중 실제 이용: 33.7%</span>
+            </div>
+          </div>
+
+          <div className="footer-bottom">
+            <p>© 2025 인피니티알맹 - 알맹상점 2조</p>
+            <p className="footer-note">제로웨이스트 실천으로 지속 가능한 미래를 만듭니다</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
