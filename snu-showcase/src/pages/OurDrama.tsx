@@ -66,178 +66,173 @@ function OurDrama() {
   ];
 
   return (
-    <div className="container">
-      <header className="our-drama-header">
-        <button onClick={() => navigate('/')} className="back-button">
+    <div className="od-container">
+      {/* Navigation Bar - Airbnb style */}
+      <nav className="od-nav">
+        <button onClick={() => navigate('/')} className="od-back-btn">
           ← 목록으로
         </button>
-        <div className="header-content">
-          <h1>우리들의 사부작 드라마</h1>
-          <p className="subtitle">휠체어 사용자를 위한 장소 공유 플랫폼</p>
-          <div className="header-tags">
-            <span className="tag">접근성 정보</span>
-            <span className="tag">커뮤니티 리뷰</span>
-            <span className="tag">실시간 공유</span>
-          </div>
-        </div>
-      </header>
+        <div className="od-nav-title">우리들의 사부작 드라마</div>
+      </nav>
 
-      <section className="hero-section">
-        <div className="hero-content">
-          <h2>모두가 접근 가능한 세상을 만듭니다</h2>
-          <p>휠체어 사용자들이 직접 공유하는 접근성 정보로<br />더 자유로운 이동을 경험하세요</p>
-          <div className="hero-stats">
-            <div className="stat-item">
-              <div className="stat-number">1,234</div>
-              <div className="stat-label">등록된 장소</div>
+      {/* Hero Section - Location Search Focus */}
+      <section className="od-hero">
+        <div className="od-hero-content">
+          <h1 className="od-hero-title">휠체어로 갈 수 있는 곳을 찾아보세요</h1>
+          <p className="od-hero-subtitle">실제 사용자들이 직접 공유한 접근성 정보</p>
+
+          {/* Search Bar - Airbnb inspired */}
+          <div className="od-search-bar">
+            <div className="od-search-section">
+              <label>장소 유형</label>
+              <input type="text" placeholder="카페, 음식점, 문화시설..." />
             </div>
-            <div className="stat-item">
-              <div className="stat-number">3,567</div>
-              <div className="stat-label">사용자 리뷰</div>
+            <div className="od-search-divider"></div>
+            <div className="od-search-section">
+              <label>위치</label>
+              <input type="text" placeholder="현재 위치에서 검색" />
             </div>
-            <div className="stat-item">
-              <div className="stat-number">8,901</div>
-              <div className="stat-label">공유된 사진</div>
+            <button className="od-search-button">검색</button>
+          </div>
+
+          {/* Stats Bar */}
+          <div className="od-stats-bar">
+            <div className="od-stat">
+              <span className="od-stat-number">1,234</span>
+              <span className="od-stat-label">장소</span>
+            </div>
+            <div className="od-stat">
+              <span className="od-stat-number">3,567</span>
+              <span className="od-stat-label">리뷰</span>
+            </div>
+            <div className="od-stat">
+              <span className="od-stat-number">8,901</span>
+              <span className="od-stat-label">사진</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="features-section">
-        <h2 className="section-title">주요 기능</h2>
-        <div className="features-grid">
-          <div className="feature-card">
-            <div className="feature-icon">📍</div>
-            <h3>위치 기반 검색</h3>
-            <p>현재 위치에서 가까운 접근 가능한 장소를 실시간으로 찾아보세요</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon">♿</div>
-            <h3>상세 접근성 정보</h3>
-            <p>경사로, 엘리베이터, 장애인 화장실 등 필수 접근성 시설 정보 제공</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon">⭐</div>
-            <h3>사용자 리뷰</h3>
-            <p>실제 휠체어 사용자들의 경험담과 평가를 공유하고 확인하세요</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon">📸</div>
-            <h3>사진 공유</h3>
-            <p>경사로, 입구, 화장실 등의 실제 사진으로 미리 확인 가능</p>
-          </div>
-        </div>
+      {/* Filters - Airbnb category style */}
+      <section className="od-filters">
+        <button className="od-filter-chip od-filter-active">전체</button>
+        <button className="od-filter-chip">카페</button>
+        <button className="od-filter-chip">음식점</button>
+        <button className="od-filter-chip">문화시설</button>
+        <button className="od-filter-chip">도서관</button>
       </section>
 
-      <section className="locations-section">
-        <div className="section-header">
-          <h2 className="section-title">주변 추천 장소</h2>
-          <div className="filter-buttons">
-            <button className="filter-btn active">전체</button>
-            <button className="filter-btn">카페</button>
-            <button className="filter-btn">음식점</button>
-            <button className="filter-btn">문화시설</button>
-          </div>
-        </div>
-
-        <div className="locations-grid">
+      {/* Locations Grid - Airbnb card layout */}
+      <section className="od-locations">
+        <h2 className="od-section-title">내 주변 장소</h2>
+        <div className="od-locations-grid">
           {locations.map((location) => (
-            <div key={location.id} className="location-card">
-              <div className="location-image">{location.image}</div>
-              <div className="location-info">
-                <div className="location-header">
-                  <h3>{location.name}</h3>
-                  <span className="distance">{location.distance}</span>
-                </div>
-                <p className="category">{location.category}</p>
-                <div className="rating-section">
-                  <span className="rating">⭐ {location.rating}</span>
-                  <span className="review-count">리뷰 {location.reviews}개</span>
-                </div>
-                <div className="accessibility-icons">
-                  {location.hasRamp && (
-                    <div className="icon-badge" title="경사로">
-                      <span>🛤️</span>
-                    </div>
-                  )}
-                  {location.hasElevator && (
-                    <div className="icon-badge" title="엘리베이터">
-                      <span>🛗</span>
-                    </div>
-                  )}
-                  {location.hasAccessibleBathroom && (
-                    <div className="icon-badge" title="장애인 화장실">
-                      <span>♿</span>
-                    </div>
-                  )}
-                </div>
+            <div key={location.id} className="od-location-card">
+              <div className="od-location-image">
+                <div className="od-location-emoji">{location.image}</div>
+                <div className="od-location-distance">{location.distance}</div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="reviews-section">
-        <h2 className="section-title">최근 리뷰</h2>
-        <div className="reviews-list">
-          {recentReviews.map((review) => (
-            <div key={review.id} className="review-card">
-              <div className="review-header">
-                <div className="user-info">
-                  <div className="user-avatar">{review.user[0]}</div>
-                  <div>
-                    <div className="user-name">{review.user}</div>
-                    <div className="review-location">{review.location}</div>
+              <div className="od-location-details">
+                <div className="od-location-main">
+                  <h3 className="od-location-name">{location.name}</h3>
+                  <div className="od-location-rating">
+                    <span className="od-rating-star">★</span>
+                    <span className="od-rating-value">{location.rating}</span>
+                    <span className="od-rating-count">({location.reviews})</span>
                   </div>
                 </div>
-                <div className="review-meta">
-                  <div className="review-rating">{'⭐'.repeat(review.rating)}</div>
-                  <div className="review-date">{review.date}</div>
+                <p className="od-location-category">{location.category}</p>
+                <div className="od-accessibility-tags">
+                  {location.hasRamp && (
+                    <span className="od-access-tag">경사로</span>
+                  )}
+                  {location.hasElevator && (
+                    <span className="od-access-tag">엘리베이터</span>
+                  )}
+                  {location.hasAccessibleBathroom && (
+                    <span className="od-access-tag">화장실</span>
+                  )}
                 </div>
-              </div>
-              <p className="review-comment">{review.comment}</p>
-              <div className="review-footer">
-                <span className="photo-count">📷 사진 {review.photos}장</span>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="community-section">
-        <div className="community-content">
-          <h2>함께 만드는 접근성 지도</h2>
-          <p>여러분의 경험이 누군가의 자유로운 이동을 돕습니다</p>
-          <div className="cta-buttons">
-            <button className="cta-button primary">장소 등록하기</button>
-            <button className="cta-button secondary">리뷰 작성하기</button>
+      {/* Reviews Section - Airbnb review style */}
+      <section className="od-reviews">
+        <div className="od-reviews-header">
+          <h2 className="od-section-title">최근 리뷰</h2>
+          <div className="od-reviews-summary">
+            <span className="od-overall-rating">★ 4.7</span>
+            <span className="od-total-reviews">총 20개의 리뷰</span>
+          </div>
+        </div>
+
+        <div className="od-reviews-grid">
+          {recentReviews.map((review) => (
+            <div key={review.id} className="od-review-card">
+              <div className="od-review-top">
+                <div className="od-reviewer">
+                  <div className="od-reviewer-avatar">{review.user[0]}</div>
+                  <div className="od-reviewer-info">
+                    <div className="od-reviewer-name">{review.user}</div>
+                    <div className="od-review-date">{review.date}</div>
+                  </div>
+                </div>
+                <div className="od-review-stars">
+                  {'★'.repeat(review.rating)}
+                </div>
+              </div>
+              <div className="od-review-location-tag">{review.location}</div>
+              <p className="od-review-text">{review.comment}</p>
+              <div className="od-review-photos">
+                <span className="od-photo-indicator">사진 {review.photos}장</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="od-cta">
+        <div className="od-cta-content">
+          <h2 className="od-cta-title">당신의 경험을 공유해주세요</h2>
+          <p className="od-cta-text">여러분이 방문한 장소의 접근성 정보가 다른 사람들에게 큰 도움이 됩니다</p>
+          <div className="od-cta-buttons">
+            <button className="od-cta-primary">장소 등록</button>
+            <button className="od-cta-secondary">리뷰 작성</button>
           </div>
         </div>
       </section>
 
-      <section className="impact-section">
-        <h2 className="section-title">프로젝트 목표</h2>
-        <div className="impact-grid">
-          <div className="impact-card">
-            <h3>🎯 심리적 장벽 해소</h3>
-            <p>접근성 정보 부족으로 인한 외출 두려움을 해소하고, 휠체어 사용자들의 자신감 있는 이동을 지원합니다.</p>
+      {/* Project Info */}
+      <section className="od-info">
+        <h2 className="od-section-title">프로젝트 소개</h2>
+        <div className="od-info-grid">
+          <div className="od-info-card">
+            <div className="od-info-icon">🎯</div>
+            <h3 className="od-info-title">심리적 장벽 해소</h3>
+            <p className="od-info-text">접근성 정보 부족으로 인한 외출 두려움 해소</p>
           </div>
-          <div className="impact-card">
-            <h3>🤝 커뮤니티 기반 정보</h3>
-            <p>실제 사용자들의 경험을 바탕으로 한 신뢰할 수 있는 정보를 제공하여, 더 정확한 의사결정을 돕습니다.</p>
+          <div className="od-info-card">
+            <div className="od-info-icon">🤝</div>
+            <h3 className="od-info-title">커뮤니티 기반</h3>
+            <p className="od-info-text">실제 사용자 경험 기반의 신뢰할 수 있는 정보</p>
           </div>
-          <div className="impact-card">
-            <h3>🌍 접근성 인식 확산</h3>
-            <p>사진과 리뷰를 통해 접근성 문제를 가시화하고, 더 많은 장소가 접근 가능하도록 사회적 변화를 만들어갑니다.</p>
+          <div className="od-info-card">
+            <div className="od-info-icon">🌍</div>
+            <h3 className="od-info-title">인식 확산</h3>
+            <p className="od-info-text">접근성 문제 가시화로 사회적 변화 촉진</p>
           </div>
         </div>
       </section>
 
-      <footer className="project-footer">
-        <p>서울대학교 정보문화학 프로젝트</p>
-        <p className="footer-note">
-          이 프로젝트는 휠체어 사용자들의 실제 니즈를 반영하여<br />
-          더 포용적인 사회를 만들기 위해 기획되었습니다.
+      {/* Footer */}
+      <footer className="od-footer">
+        <p className="od-footer-text">서울대학교 정보문화학 프로젝트</p>
+        <p className="od-footer-subtext">
+          휠체어 사용자들의 실제 니즈를 반영하여 더 포용적인 사회를 만듭니다
         </p>
       </footer>
     </div>
