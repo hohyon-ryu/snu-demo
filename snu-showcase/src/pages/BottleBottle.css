@@ -1,755 +1,960 @@
-/* BottleBottle Page Styles */
+/* ========================================
+   보들보틀 - Duolingo Style Gamification
+   Color Palette: White, Black, Gray, #22C55E
+   Design: Sharp edges, bold typography, achievement-focused
+   ======================================== */
 
+/* ========== GLOBAL RESET ========== */
 .bottle-bottle-page {
   min-height: 100vh;
   background-color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  padding-bottom: 2rem;
 }
 
-/* Header */
+/* ========== HEADER (Fixed) ========== */
 .bb-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  border-bottom: 3px solid #000000;
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
+}
+
+.bb-back-btn {
   background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.bb-header h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin: 0;
-}
-
-.back-button {
-  background: none;
-  border: none;
-  color: #22C55E;
-  font-size: 1rem;
-  font-weight: 500;
+  border: 3px solid #000000;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: background-color 0.2s;
+  transition: all 0.15s ease;
+  font-size: 1.5rem;
 }
 
-.back-button:hover {
-  background-color: #f0fdf4;
+.bb-back-btn:hover {
+  background-color: #22C55E;
+  border-color: #22C55E;
+  transform: scale(1.05);
 }
 
-.header-spacer {
-  width: 100px; /* Balance the layout */
+.bb-back-btn:active {
+  transform: scale(0.95);
 }
 
-/* Hero Section */
-.bb-hero {
-  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
-  padding: 4rem 2rem;
-  text-align: center;
+.back-arrow {
+  color: #000000;
+  font-weight: 900;
 }
 
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
+.bb-back-btn:hover .back-arrow {
+  color: #ffffff;
 }
 
-.hero-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
+.bb-header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
-.bb-hero h2 {
-  font-size: 2.5rem;
+.bb-logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #000000;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+.bb-header-right {
+  width: 48px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bb-level-badge {
+  background-color: #22C55E;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 900;
+  padding: 0.5rem 0.75rem;
+  border: 3px solid #000000;
+}
+
+/* ========== XP PROGRESS BANNER ========== */
+.bb-xp-banner {
+  background-color: #f5f5f5;
+  border-bottom: 3px solid #000000;
+  padding: 1.5rem;
+}
+
+.xp-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.xp-label {
+  font-size: 1.125rem;
+  font-weight: 900;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.xp-numbers {
+  font-size: 1rem;
   font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 0.5rem;
+  color: #4b5563;
 }
 
-.bb-hero p {
-  font-size: 1.25rem;
-  color: #4b5563;
+.xp-bar-container {
+  width: 100%;
+  height: 24px;
+  background-color: #d1d5db;
+  border: 3px solid #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background-color: #22C55E;
+  transition: width 0.4s ease;
+  border-right: 3px solid #000000;
+}
+
+/* ========== STREAK SECTION ========== */
+.bb-streak-section {
+  padding: 2rem 1.5rem;
+  border-bottom: 3px solid #e5e7eb;
+}
+
+.streak-main {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
-.hero-tags {
-  display: flex;
-  gap: 0.75rem;
-  justify-content: center;
-  flex-wrap: wrap;
+.streak-flame {
+  font-size: 4rem;
+  line-height: 1;
 }
 
-.tag {
+.streak-info {
+  flex: 1;
+}
+
+.streak-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #000000;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  letter-spacing: -1px;
+}
+
+.streak-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.streak-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.streak-day {
+  text-align: center;
+  padding: 1rem 0.5rem;
+  background-color: #f9fafb;
+  border: 3px solid #e5e7eb;
+  transition: all 0.15s ease;
+}
+
+.streak-day.completed {
   background-color: #22C55E;
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  border-color: #000000;
 }
 
-/* Section */
-.bb-section {
-  max-width: 1200px;
+.streak-day-label {
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #6b7280;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.streak-day.completed .streak-day-label {
+  color: #ffffff;
+}
+
+.streak-day-dot {
+  width: 16px;
+  height: 16px;
+  background-color: #d1d5db;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  border: 2px solid #9ca3af;
+}
+
+.streak-day.completed .streak-day-dot {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* ========== QUICK STATS GRID ========== */
+.bb-quick-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 3px solid #e5e7eb;
+}
+
+.quick-stat-card {
+  background-color: #f9fafb;
+  border: 3px solid #000000;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+
+.quick-stat-card.primary {
+  background-color: #22C55E;
+  border-color: #000000;
+}
+
+.quick-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.quick-stat-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.quick-stat-number {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #000000;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.5px;
+}
+
+.quick-stat-card.primary .quick-stat-number {
+  color: #ffffff;
+}
+
+.quick-stat-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.quick-stat-card.primary .quick-stat-label {
+  color: #ffffff;
+}
+
+/* ========== SECTION COMMON ========== */
+.bb-section {
+  padding: 2rem 1.5rem;
+  border-bottom: 3px solid #e5e7eb;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .section-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 1.5rem;
-}
-
-/* Stats Grid */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.stat-card {
-  background-color: #f9fafb;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.stat-card.highlight {
-  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
-  border-color: #22C55E;
-}
-
-.stat-icon {
-  font-size: 2.5rem;
-}
-
-.stat-info {
-  flex: 1;
-}
-
-.stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 0.25rem;
-}
-
-.stat-label {
-  font-size: 0.875rem;
-  color: #6b7280;
-}
-
-/* Weekly Tracker */
-.weekly-tracker {
-  display: flex;
-  justify-content: space-around;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.day-item {
-  flex: 1;
-  text-align: center;
-  padding: 1rem;
-  background-color: #f9fafb;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  transition: all 0.2s;
-}
-
-.day-item.used {
-  background-color: #dcfce7;
-  border-color: #22C55E;
-}
-
-.day-label {
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin-bottom: 0.5rem;
-}
-
-.day-indicator {
   font-size: 1.5rem;
-  font-weight: 700;
-  color: #22C55E;
+  font-weight: 900;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin: 0;
 }
 
-.day-item:not(.used) .day-indicator {
-  color: #d1d5db;
-}
-
-.weekly-summary {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.weekly-summary p {
-  font-size: 1rem;
-  color: #4b5563;
-}
-
-.highlight-text {
-  color: #22C55E;
-  font-weight: 700;
-}
-
-/* Achievements */
-.achievements-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-}
-
-.achievement-card {
-  background-color: #f9fafb;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
-  transition: all 0.2s;
-}
-
-.achievement-card.unlocked {
-  background-color: #dcfce7;
-  border-color: #22C55E;
-}
-
-.achievement-card.locked {
-  opacity: 0.5;
-}
-
-.achievement-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.achievement-icon {
-  font-size: 2.5rem;
-}
-
-.achievement-info {
-  flex: 1;
-}
-
-.achievement-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 0.25rem;
-}
-
-.achievement-description {
-  font-size: 0.875rem;
-  color: #6b7280;
-}
-
-.unlock-badge {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background-color: #22C55E;
+.section-count {
+  background-color: #000000;
   color: #ffffff;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 0.875rem;
+  font-weight: 900;
+  padding: 0.5rem 0.75rem;
+  min-width: 48px;
+  text-align: center;
 }
 
-/* Challenges */
-.challenges-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.leaderboard-prize {
+  font-size: 1.5rem;
 }
 
-.challenge-card {
-  background-color: #ffffff;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.2s;
-}
-
-.challenge-card:hover {
-  border-color: #22C55E;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.challenge-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
-}
-
-.challenge-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1a1a1a;
-}
-
-.challenge-status {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #6b7280;
-  padding: 0.25rem 0.75rem;
-  background-color: #f3f4f6;
-  border-radius: 12px;
-}
-
-.challenge-status.completed {
-  background-color: #dcfce7;
+.goal-percent {
+  font-size: 1.5rem;
+  font-weight: 900;
   color: #22C55E;
 }
 
-.challenge-progress-bar {
-  width: 100%;
-  height: 8px;
-  background-color: #e5e7eb;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.challenge-progress-fill {
-  height: 100%;
-  background-color: #22C55E;
-  border-radius: 4px;
-  transition: width 0.3s ease;
-}
-
-/* Community */
-.community-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.community-card {
-  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
-  border: 2px solid #22C55E;
-  border-radius: 12px;
-  padding: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.community-icon {
-  font-size: 3rem;
-}
-
-.community-info {
-  flex: 1;
-}
-
-.community-number {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 0.25rem;
-}
-
-.community-label {
-  font-size: 0.875rem;
-  color: #4b5563;
-}
-
-.leaderboard {
-  background-color: #f9fafb;
-  border-radius: 12px;
-  padding: 1.5rem;
-  border: 2px solid #e5e7eb;
-}
-
-.leaderboard-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 1rem;
-}
-
-.leaderboard-items {
+/* ========== CHALLENGE STACK ========== */
+.challenge-stack {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.leaderboard-item {
+.challenge-item {
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.15s ease;
+}
+
+.challenge-item:hover {
+  transform: translateX(4px);
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.challenge-item.completed {
+  background-color: #f0fdf4;
+  border-color: #22C55E;
+}
+
+.challenge-left {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
-  background-color: #ffffff;
-  border-radius: 8px;
-  border: 2px solid #e5e7eb;
-  transition: all 0.2s;
+  flex: 1;
 }
 
-.leaderboard-item.highlight {
-  background-color: #dcfce7;
-  border-color: #22C55E;
-}
-
-.leaderboard-item:hover {
-  transform: translateX(4px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.rank {
+.challenge-checkbox {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border: 3px solid #000000;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  font-size: 0.875rem;
+  flex-shrink: 0;
 }
 
-.rank.gold {
-  background-color: #fbbf24;
-  color: #ffffff;
-}
-
-.rank.silver {
-  background-color: #9ca3af;
-  color: #ffffff;
-}
-
-.rank.bronze {
-  background-color: #cd7f32;
-  color: #ffffff;
-}
-
-.user-name {
-  flex: 1;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1a1a1a;
-}
-
-.user-score {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: #22C55E;
-}
-
-/* Goal */
-.goal-card {
-  background-color: #ffffff;
-  border: 2px solid #22C55E;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.goal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.goal-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: #1a1a1a;
-}
-
-.goal-percentage {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #22C55E;
-}
-
-.goal-progress-bar {
-  width: 100%;
-  height: 12px;
-  background-color: #e5e7eb;
-  border-radius: 6px;
-  overflow: hidden;
-  margin-bottom: 0.75rem;
-}
-
-.goal-progress-fill {
-  height: 100%;
+.challenge-item.completed .challenge-checkbox {
   background-color: #22C55E;
-  border-radius: 6px;
-  transition: width 0.3s ease;
-}
-
-.goal-footer {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.875rem;
-  color: #6b7280;
-}
-
-.goal-remaining {
-  color: #22C55E;
-  font-weight: 600;
-}
-
-.goal-message {
-  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
-  border-radius: 12px;
-  padding: 1rem;
-  text-align: center;
-}
-
-.goal-message p {
-  margin: 0;
-  font-size: 1rem;
-  color: #1a1a1a;
-  font-weight: 500;
-}
-
-/* Impact */
-.impact-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.impact-card {
-  background-color: #f9fafb;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.2s;
-}
-
-.impact-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-color: #22C55E;
 }
 
-.impact-visual {
-  font-size: 3rem;
+.check-mark {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.challenge-content {
+  flex: 1;
+}
+
+.challenge-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 0.25rem;
+}
+
+.challenge-reward {
+  font-size: 0.875rem;
+  font-weight: 900;
+  color: #22C55E;
+  text-transform: uppercase;
+}
+
+.challenge-right {
+  margin-left: 1rem;
+}
+
+.challenge-progress-circle {
+  width: 56px;
+  height: 56px;
+  border: 3px solid #000000;
+  background-color: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.challenge-item.completed .challenge-progress-circle {
+  background-color: #22C55E;
+}
+
+.progress-text {
+  font-size: 0.875rem;
+  font-weight: 900;
+  color: #000000;
+}
+
+.challenge-item.completed .progress-text {
+  color: #ffffff;
+}
+
+/* ========== ACHIEVEMENT SHOWCASE ========== */
+.achievement-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.achievement-tile {
+  background-color: #f9fafb;
+  border: 3px solid #e5e7eb;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+.achievement-tile.unlocked {
+  background-color: #ffffff;
+  border-color: #000000;
+}
+
+.achievement-tile.unlocked:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.achievement-tile.locked {
+  opacity: 0.4;
+}
+
+.achievement-tile-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  filter: grayscale(0);
+}
+
+.achievement-tile.locked .achievement-tile-icon {
+  filter: grayscale(100%);
+}
+
+.achievement-tile-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.achievement-xp-badge {
+  background-color: #22C55E;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.25rem 0.5rem;
+  display: inline-block;
+  border: 2px solid #000000;
+}
+
+.achievement-lock {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+/* ========== LEADERBOARD ========== */
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
-.impact-stat {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #22C55E;
-  margin-bottom: 0.5rem;
+.leaderboard-row {
+  background-color: #f9fafb;
+  border: 3px solid #e5e7eb;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.15s ease;
 }
 
-.impact-label {
+.leaderboard-row:hover {
+  transform: translateX(4px);
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.leaderboard-row.is-me {
+  background-color: #22C55E;
+  border-color: #000000;
+}
+
+.leaderboard-row.rank-1 {
+  border-color: #000000;
+  border-width: 4px;
+}
+
+.leaderboard-rank {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rank-number {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #000000;
+}
+
+.leaderboard-row.is-me .rank-number {
+  color: #ffffff;
+}
+
+.leaderboard-avatar {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #000000;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.leaderboard-name {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+.leaderboard-row.is-me .leaderboard-name {
+  color: #ffffff;
+}
+
+.leaderboard-score {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #000000;
+}
+
+.leaderboard-row.is-me .leaderboard-score {
+  color: #ffffff;
+}
+
+.leaderboard-footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 3px solid #e5e7eb;
+}
+
+.community-total {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.community-icon {
+  font-size: 1.25rem;
+}
+
+.community-text {
   font-size: 0.875rem;
+  font-weight: 700;
   color: #6b7280;
 }
 
-.impact-comparison {
-  background-color: #dcfce7;
-  border-radius: 12px;
+/* ========== GOAL BOX ========== */
+.goal-box {
+  background-color: #ffffff;
+  border: 3px solid #000000;
   padding: 1.5rem;
-  text-align: center;
+  transition: all 0.15s ease;
 }
 
-.impact-comparison p {
-  margin: 0;
-  font-size: 1rem;
-  color: #1a1a1a;
+.goal-box:hover {
+  box-shadow: 6px 6px 0 #000000;
 }
 
-/* CTA Section */
-.bb-cta {
-  background: linear-gradient(135deg, #22C55E 0%, #16a34a 100%);
-  padding: 4rem 2rem;
-  text-align: center;
+.goal-box-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-.cta-content {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.bb-cta h3 {
+.goal-icon {
   font-size: 2rem;
+}
+
+.goal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+.goal-progress-track {
+  width: 100%;
+  height: 32px;
+  background-color: #e5e7eb;
+  border: 3px solid #000000;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.goal-progress-fill-track {
+  height: 100%;
+  background-color: #22C55E;
+  transition: width 0.4s ease;
+  border-right: 3px solid #000000;
+}
+
+.goal-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goal-current {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4b5563;
+}
+
+.goal-remaining {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #22C55E;
+  text-transform: uppercase;
+}
+
+/* ========== IMPACT SECTION ========== */
+.bb-impact-section {
+  background-color: #f9fafb;
+  border-bottom: 3px solid #000000;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.impact-box {
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+
+.impact-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.impact-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.impact-value {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #22C55E;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.impact-desc {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #6b7280;
+}
+
+.impact-summary {
+  background-color: #22C55E;
+  border: 3px solid #000000;
+  padding: 1.25rem;
+  text-align: center;
+  font-size: 1rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 0.5rem;
 }
 
-.bb-cta p {
-  font-size: 1.125rem;
-  color: #dcfce7;
-  margin-bottom: 2rem;
-}
-
-.cta-button {
+/* ========== CTA SECTION ========== */
+.bb-cta-section {
+  padding: 2rem 1.5rem;
   background-color: #ffffff;
-  color: #22C55E;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 700;
+}
+
+.bb-cta-btn {
+  width: 100%;
+  background-color: #22C55E;
+  border: 4px solid #000000;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.15s ease;
+  box-shadow: 6px 6px 0 #000000;
 }
 
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+.bb-cta-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 #000000;
 }
 
-/* Footer */
+.bb-cta-btn:active {
+  transform: translate(0, 0);
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.cta-icon {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.cta-text {
+  font-size: 1.125rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ========== FOOTER ========== */
 .bb-footer {
+  padding: 2rem 1.5rem;
   background-color: #f9fafb;
-  padding: 2rem;
   text-align: center;
-  border-top: 1px solid #e5e7eb;
+  border-top: 3px solid #e5e7eb;
 }
 
-.bb-footer p {
-  margin: 0.25rem 0;
-  color: #6b7280;
+.footer-text {
   font-size: 0.875rem;
+  font-weight: 700;
+  color: #4b5563;
+  margin-bottom: 0.25rem;
 }
 
-.footer-subtitle {
-  color: #22C55E;
-  font-weight: 500;
+.footer-subtext {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
 }
 
-/* Responsive Design */
+/* ========== RESPONSIVE DESIGN ========== */
 @media (max-width: 768px) {
   .bb-header {
-    padding: 1rem 1.5rem;
+    padding: 1rem;
   }
 
-  .bb-header h1 {
+  .bb-logo {
     font-size: 1.25rem;
   }
 
-  .bb-hero {
-    padding: 3rem 1.5rem;
+  .bb-level-badge {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.625rem;
   }
 
-  .bb-hero h2 {
-    font-size: 1.75rem;
+  .bb-xp-banner {
+    padding: 1rem;
   }
 
-  .bb-hero p {
+  .xp-label {
     font-size: 1rem;
   }
 
-  .hero-icon {
-    font-size: 3rem;
-  }
-
-  .bb-section {
-    padding: 2rem 1.5rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .weekly-tracker {
-    flex-wrap: wrap;
-  }
-
-  .achievements-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .impact-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .goal-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .leaderboard-item {
-    gap: 0.75rem;
-  }
-
-  .user-name {
+  .xp-numbers {
     font-size: 0.875rem;
   }
 
-  .bb-cta h3 {
+  .bb-streak-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .streak-number {
+    font-size: 2.5rem;
+  }
+
+  .streak-label {
+    font-size: 0.875rem;
+  }
+
+  .bb-quick-stats {
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .quick-stat-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .quick-stat-icon {
     font-size: 1.5rem;
   }
 
-  .bb-cta p {
+  .quick-stat-number {
+    font-size: 1.5rem;
+  }
+
+  .bb-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .achievement-showcase {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .challenge-item {
+    padding: 1rem;
+  }
+
+  .bb-cta-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .cta-text {
     font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-tags {
-    gap: 0.5rem;
+  .bb-back-btn {
+    width: 40px;
+    height: 40px;
   }
 
-  .tag {
-    font-size: 0.75rem;
-    padding: 0.375rem 0.75rem;
-  }
-
-  .stat-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .day-item {
-    padding: 0.75rem 0.5rem;
-  }
-
-  .day-label {
-    font-size: 0.75rem;
-  }
-
-  .day-indicator {
+  .back-arrow {
     font-size: 1.25rem;
   }
 
-  .achievement-card {
-    padding: 1rem;
+  .bb-header-right {
+    width: 40px;
   }
 
-  .achievement-icon {
+  .streak-calendar {
+    gap: 0.375rem;
+  }
+
+  .streak-day {
+    padding: 0.75rem 0.25rem;
+  }
+
+  .streak-day-label {
+    font-size: 0.625rem;
+  }
+
+  .streak-day-dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .bb-quick-stats {
+    gap: 0.5rem;
+  }
+
+  .quick-stat-number {
+    font-size: 1.25rem;
+  }
+
+  .quick-stat-label {
+    font-size: 0.625rem;
+  }
+
+  .achievement-showcase {
+    gap: 0.75rem;
+  }
+
+  .achievement-tile {
+    padding: 1rem 0.75rem;
+  }
+
+  .achievement-tile-icon {
     font-size: 2rem;
   }
 
-  .community-card {
-    flex-direction: column;
-    text-align: center;
+  .achievement-tile-name {
+    font-size: 0.75rem;
+  }
+
+  .challenge-left {
+    gap: 0.75rem;
+  }
+
+  .challenge-checkbox {
+    width: 28px;
+    height: 28px;
+  }
+
+  .challenge-name {
+    font-size: 0.875rem;
+  }
+
+  .challenge-reward {
+    font-size: 0.75rem;
+  }
+
+  .challenge-progress-circle {
+    width: 48px;
+    height: 48px;
+  }
+
+  .leaderboard-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .goal-title {
+    font-size: 1rem;
+  }
+
+  .impact-value {
+    font-size: 1.5rem;
+  }
+
+  .impact-desc {
+    font-size: 0.75rem;
+  }
+
+  .bb-cta-btn {
+    padding: 1.25rem;
+  }
+
+  .cta-text {
+    font-size: 0.875rem;
   }
 }
