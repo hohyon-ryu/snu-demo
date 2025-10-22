@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './BottleBottle.css';
 
 function BottleBottle() {
   const navigate = useNavigate();
+  const [selectedTab, setSelectedTab] = useState<'challenges' | 'diary' | 'friends'>('challenges');
 
+  // Character/Mascot data - core to the gamification experience
+  const characterData = {
+    name: '보들이',
+    level: 7,
+    currentXp: 470,
+    maxXp: 500,
+    mood: 'happy',
+    message: '오늘도 환경을 위한 작은 실천, 함께 해요!'
+  };
+
+  // Enhanced achievements with more detailed progression
   const achievements = [
-    { id: 1, title: '첫 시작', description: '첫 다회용컵 사용', icon: '🌱', unlocked: true, xp: 10 },
-    { id: 2, title: '1주일 연속', description: '7일 연속 사용', icon: '🔥', unlocked: true, xp: 50 },
-    { id: 3, title: '환경 수호자', description: '50회 사용 달성', icon: '🌍', unlocked: true, xp: 100 },
-    { id: 4, title: '1개월 챌린지', description: '30일 연속 사용', icon: '⭐', unlocked: false, xp: 200 },
-    { id: 5, title: '플라스틱 제로', description: '100회 사용 달성', icon: '🏆', unlocked: false, xp: 500 },
-    { id: 6, title: '커뮤니티 리더', description: '친구 10명 초대', icon: '👥', unlocked: false, xp: 150 }
+    { id: 1, title: '첫 시작', description: '첫 다회용컵 사용', icon: '🌱', unlocked: true, xp: 10, category: 'beginner' },
+    { id: 2, title: '1주일 연속', description: '7일 연속 사용', icon: '🔥', unlocked: true, xp: 50, category: 'streak' },
+    { id: 3, title: '환경 수호자', description: '50회 사용 달성', icon: '🌍', unlocked: true, xp: 100, category: 'milestone' },
+    { id: 4, title: '카페 탐험가', description: '5개 다른 카페 방문', icon: '☕', unlocked: true, xp: 75, category: 'exploration' },
+    { id: 5, title: '1개월 챌린지', description: '30일 연속 사용', icon: '⭐', unlocked: false, xp: 200, category: 'streak' },
+    { id: 6, title: '플라스틱 제로', description: '100회 사용 달성', icon: '🏆', unlocked: false, xp: 500, category: 'milestone' },
+    { id: 7, title: '커뮤니티 리더', description: '친구 10명 초대', icon: '👥', unlocked: false, xp: 150, category: 'social' },
+    { id: 8, title: '일기 작가', description: '30개 일기 작성', icon: '📝', unlocked: false, xp: 120, category: 'diary' },
+    { id: 9, title: '얼리버드', description: '오전 8시 전 5회 사용', icon: '🌅', unlocked: false, xp: 80, category: 'special' }
   ];
 
   const weeklyStats = [
@@ -24,16 +39,60 @@ function BottleBottle() {
     { day: '일', used: false }
   ];
 
+  // Realistic Korean cafe names and mission data
   const challenges = [
-    { id: 1, title: '이번 주 5회 사용하기', progress: 5, total: 5, completed: true, xp: 50 },
-    { id: 2, title: '친구와 함께 카페 방문', progress: 1, total: 3, completed: false, xp: 30 },
-    { id: 3, title: '새로운 카페 탐험하기', progress: 2, total: 5, completed: false, xp: 75 }
+    { id: 1, title: '이번 주 5회 사용하기', description: '주 5회 다회용컵 사용', progress: 5, total: 5, completed: true, xp: 50, type: 'weekly' },
+    { id: 2, title: '친구와 함께 스타벅스 방문', description: '친구 초대해서 함께 카페 가기', progress: 1, total: 3, completed: false, xp: 30, type: 'social', cafe: '스타벅스' },
+    { id: 3, title: '신촌 카페 탐험하기', description: '5개의 다른 카페에서 사용', progress: 2, total: 5, completed: false, xp: 75, type: 'exploration', location: '신촌' },
+    { id: 4, title: '텀블러 영수증 인증', description: '오늘 사용한 텀블러 영수증 찍기', progress: 0, total: 1, completed: false, xp: 15, type: 'daily' },
+    { id: 5, title: '일기 작성하기', description: '오늘의 제로웨이스트 경험 기록', progress: 0, total: 1, completed: false, xp: 20, type: 'diary' }
   ];
 
+  // Realistic Korean cafe data
+  const visitedCafes = [
+    { name: '스타벅스 신촌점', visits: 12, lastVisit: '2일 전', discount: '300원 할인' },
+    { name: '투썸플레이스 이대점', visits: 8, lastVisit: '4일 전', discount: '500원 할인' },
+    { name: '커피빈 홍대점', visits: 5, lastVisit: '1주일 전', discount: '300원 할인' },
+    { name: '블루보틀 성수점', visits: 3, lastVisit: '2주일 전', discount: '없음' },
+    { name: '폴바셋 강남점', visits: 7, lastVisit: '5일 전', discount: '400원 할인' }
+  ];
+
+  // Community/Leaderboard data with realistic Korean names
   const leaderboardData = [
-    { rank: 1, name: '환경지킴이', score: 42, avatar: '🦸' },
-    { rank: 2, name: '그린워리어', score: 38, avatar: '🌟' },
-    { rank: 3, name: '에코러버', score: 35, avatar: '💚', isMe: true }
+    { rank: 1, name: '에코워리어_지수', score: 42, avatar: '🦸', streak: 28, region: '서울 서대문구' },
+    { rank: 2, name: '그린라이프_민준', score: 38, avatar: '🌟', streak: 21, region: '서울 마포구' },
+    { rank: 3, name: '에코러버_유진', score: 35, avatar: '💚', isMe: true, streak: 23, region: '서울 신촌' },
+    { rank: 4, name: '제로웨이스트_서연', score: 32, avatar: '🌿', streak: 19, region: '서울 홍대' },
+    { rank: 5, name: '플라스틱프리_재훈', score: 29, avatar: '♻️', streak: 15, region: '서울 강남구' }
+  ];
+
+  // Friend activity data
+  const friendsActivity = [
+    { name: '지수', action: '스타벅스에서 텀블러 사용', time: '10분 전', likes: 5, avatar: '🦸' },
+    { name: '민준', action: '7일 연속 달성!', time: '1시간 전', likes: 12, avatar: '🌟' },
+    { name: '서연', action: '새로운 카페 탐험 완료', time: '2시간 전', likes: 8, avatar: '🌿' }
+  ];
+
+  // Diary entries
+  const diaryEntries = [
+    {
+      id: 1,
+      date: '2025-10-22',
+      cafe: '스타벅스 신촌점',
+      content: '오늘도 텀블러 챙겨서 카페 다녀왔어요! 할인도 받고 기분도 좋네요 😊',
+      photo: true,
+      likes: 7,
+      comments: 3
+    },
+    {
+      id: 2,
+      date: '2025-10-21',
+      cafe: '투썸플레이스 이대점',
+      content: '친구들이랑 같이 다회용컵 쓰니까 더 뿌듯해요!',
+      photo: false,
+      likes: 12,
+      comments: 5
+    }
   ];
 
   return (
@@ -47,18 +106,22 @@ function BottleBottle() {
           <div className="bb-logo">보들보틀</div>
         </div>
         <div className="bb-header-right">
-          <div className="bb-level-badge">Lv 7</div>
+          <div className="bb-level-badge">Lv {characterData.level}</div>
         </div>
       </header>
 
-      {/* XP Progress Banner */}
+      {/* XP Progress Banner with Character */}
       <section className="bb-xp-banner">
         <div className="xp-info">
-          <div className="xp-label">레벨 7</div>
-          <div className="xp-numbers">470 / 500 XP</div>
+          <div className="xp-label">레벨 {characterData.level}</div>
+          <div className="xp-numbers">{characterData.currentXp} / {characterData.maxXp} XP</div>
         </div>
         <div className="xp-bar-container">
-          <div className="xp-bar-fill" style={{ width: '94%' }}></div>
+          <div className="xp-bar-fill" style={{ width: `${(characterData.currentXp / characterData.maxXp) * 100}%` }}></div>
+        </div>
+        <div className="character-message">
+          <span className="character-icon">🌱</span>
+          <span className="character-text">{characterData.message}</span>
         </div>
       </section>
 
@@ -100,33 +163,113 @@ function BottleBottle() {
         </div>
       </section>
 
-      {/* Active Challenges */}
-      <section className="bb-section">
-        <div className="section-header">
-          <h2 className="section-title">오늘의 챌린지</h2>
-          <div className="section-count">{challenges.length}</div>
-        </div>
-        <div className="challenge-stack">
-          {challenges.map((challenge) => (
-            <div key={challenge.id} className={`challenge-item ${challenge.completed ? 'completed' : ''}`}>
-              <div className="challenge-left">
-                <div className="challenge-checkbox">
-                  {challenge.completed && <span className="check-mark">✓</span>}
-                </div>
-                <div className="challenge-content">
-                  <div className="challenge-name">{challenge.title}</div>
-                  <div className="challenge-reward">+{challenge.xp} XP</div>
-                </div>
-              </div>
-              <div className="challenge-right">
-                <div className="challenge-progress-circle">
-                  <span className="progress-text">{challenge.progress}/{challenge.total}</span>
-                </div>
-              </div>
-            </div>
-          ))}
+      {/* Tab Navigation */}
+      <section className="bb-tab-section">
+        <div className="tab-nav">
+          <button
+            className={`tab-btn ${selectedTab === 'challenges' ? 'active' : ''}`}
+            onClick={() => setSelectedTab('challenges')}
+          >
+            📋 미션
+          </button>
+          <button
+            className={`tab-btn ${selectedTab === 'diary' ? 'active' : ''}`}
+            onClick={() => setSelectedTab('diary')}
+          >
+            📝 일기
+          </button>
+          <button
+            className={`tab-btn ${selectedTab === 'friends' ? 'active' : ''}`}
+            onClick={() => setSelectedTab('friends')}
+          >
+            👥 친구
+          </button>
         </div>
       </section>
+
+      {/* Active Challenges Tab */}
+      {selectedTab === 'challenges' && (
+        <section className="bb-section">
+          <div className="section-header">
+            <h2 className="section-title">오늘의 챌린지</h2>
+            <div className="section-count">{challenges.length}</div>
+          </div>
+          <div className="challenge-stack">
+            {challenges.map((challenge) => (
+              <div key={challenge.id} className={`challenge-item ${challenge.completed ? 'completed' : ''}`}>
+                <div className="challenge-left">
+                  <div className="challenge-checkbox">
+                    {challenge.completed && <span className="check-mark">✓</span>}
+                  </div>
+                  <div className="challenge-content">
+                    <div className="challenge-name">{challenge.title}</div>
+                    <div className="challenge-description">{challenge.description}</div>
+                    <div className="challenge-reward">+{challenge.xp} XP</div>
+                  </div>
+                </div>
+                <div className="challenge-right">
+                  <div className="challenge-progress-circle">
+                    <span className="progress-text">{challenge.progress}/{challenge.total}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Diary Tab */}
+      {selectedTab === 'diary' && (
+        <section className="bb-section">
+          <div className="section-header">
+            <h2 className="section-title">나의 일기</h2>
+            <button className="add-diary-btn">+ 작성</button>
+          </div>
+          <div className="diary-stack">
+            {diaryEntries.map((entry) => (
+              <div key={entry.id} className="diary-card">
+                <div className="diary-header">
+                  <span className="diary-date">{entry.date}</span>
+                  <span className="diary-cafe">📍 {entry.cafe}</span>
+                </div>
+                <div className="diary-content">{entry.content}</div>
+                {entry.photo && (
+                  <div className="diary-photo-placeholder">
+                    📷 사진 첨부됨
+                  </div>
+                )}
+                <div className="diary-footer">
+                  <span className="diary-likes">❤️ {entry.likes}</span>
+                  <span className="diary-comments">💬 {entry.comments}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Friends Tab */}
+      {selectedTab === 'friends' && (
+        <section className="bb-section">
+          <div className="section-header">
+            <h2 className="section-title">친구 활동</h2>
+            <button className="invite-friend-btn">+ 초대</button>
+          </div>
+          <div className="friends-activity-stack">
+            {friendsActivity.map((friend, index) => (
+              <div key={index} className="friend-activity-card">
+                <div className="friend-avatar">{friend.avatar}</div>
+                <div className="friend-activity-content">
+                  <div className="friend-name">{friend.name}</div>
+                  <div className="friend-action">{friend.action}</div>
+                  <div className="friend-time">{friend.time}</div>
+                </div>
+                <div className="friend-likes">❤️ {friend.likes}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Achievement Showcase */}
       <section className="bb-section">
@@ -153,6 +296,24 @@ function BottleBottle() {
         </div>
       </section>
 
+      {/* Visited Cafes Section */}
+      <section className="bb-section">
+        <div className="section-header">
+          <h2 className="section-title">방문한 카페</h2>
+          <div className="section-count">{visitedCafes.length}</div>
+        </div>
+        <div className="cafe-grid">
+          {visitedCafes.slice(0, 3).map((cafe, index) => (
+            <div key={index} className="cafe-card">
+              <div className="cafe-icon">☕</div>
+              <div className="cafe-name">{cafe.name}</div>
+              <div className="cafe-visits">{cafe.visits}회 방문</div>
+              <div className="cafe-discount">{cafe.discount}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Leaderboard Section */}
       <section className="bb-section">
         <div className="section-header">
@@ -169,8 +330,14 @@ function BottleBottle() {
                 <div className="rank-number">{user.rank}</div>
               </div>
               <div className="leaderboard-avatar">{user.avatar}</div>
-              <div className="leaderboard-name">{user.name}</div>
-              <div className="leaderboard-score">{user.score}회</div>
+              <div className="leaderboard-info">
+                <div className="leaderboard-name">{user.name}</div>
+                <div className="leaderboard-region">{user.region}</div>
+              </div>
+              <div className="leaderboard-stats">
+                <div className="leaderboard-score">{user.score}회</div>
+                <div className="leaderboard-streak">🔥 {user.streak}일</div>
+              </div>
             </div>
           ))}
         </div>

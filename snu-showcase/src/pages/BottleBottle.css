@@ -121,6 +121,7 @@
   border: 3px solid #000000;
   position: relative;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 .xp-bar-fill {
@@ -128,6 +129,27 @@
   background-color: #22C55E;
   transition: width 0.4s ease;
   border-right: 3px solid #000000;
+}
+
+.character-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  padding: 1rem;
+}
+
+.character-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.character-text {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #4b5563;
+  line-height: 1.4;
 }
 
 /* ========== STREAK SECTION ========== */
@@ -269,6 +291,43 @@
   color: #ffffff;
 }
 
+/* ========== TAB NAVIGATION ========== */
+.bb-tab-section {
+  border-bottom: 3px solid #000000;
+  background-color: #ffffff;
+}
+
+.tab-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.tab-btn {
+  background-color: #f9fafb;
+  border: none;
+  border-right: 3px solid #000000;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tab-btn:last-child {
+  border-right: none;
+}
+
+.tab-btn.active {
+  background-color: #22C55E;
+  color: #ffffff;
+}
+
+.tab-btn:hover:not(.active) {
+  background-color: #e5e7eb;
+}
+
 /* ========== SECTION COMMON ========== */
 .bb-section {
   padding: 2rem 1.5rem;
@@ -299,6 +358,24 @@
   padding: 0.5rem 0.75rem;
   min-width: 48px;
   text-align: center;
+}
+
+.add-diary-btn,
+.invite-friend-btn {
+  background-color: #22C55E;
+  color: #ffffff;
+  border: 3px solid #000000;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.add-diary-btn:hover,
+.invite-friend-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 #000000;
 }
 
 .leaderboard-prize {
@@ -376,6 +453,13 @@
   font-weight: 700;
   color: #000000;
   margin-bottom: 0.25rem;
+}
+
+.challenge-description {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
 }
 
 .challenge-reward {
@@ -475,6 +559,189 @@
   margin-top: 0.5rem;
 }
 
+/* ========== DIARY SECTION ========== */
+.diary-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.diary-card {
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  padding: 1.25rem;
+  transition: all 0.15s ease;
+}
+
+.diary-card:hover {
+  transform: translateX(4px);
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.diary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.diary-date {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #4b5563;
+}
+
+.diary-cafe {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #22C55E;
+}
+
+.diary-content {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.diary-photo-placeholder {
+  background-color: #f9fafb;
+  border: 3px solid #e5e7eb;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.diary-footer {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.diary-likes,
+.diary-comments {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #6b7280;
+}
+
+/* ========== FRIENDS ACTIVITY SECTION ========== */
+.friends-activity-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.friend-activity-card {
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.15s ease;
+}
+
+.friend-activity-card:hover {
+  transform: translateX(4px);
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.friend-avatar {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #000000;
+  background-color: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.friend-activity-content {
+  flex: 1;
+}
+
+.friend-name {
+  font-size: 0.875rem;
+  font-weight: 900;
+  color: #000000;
+  margin-bottom: 0.25rem;
+}
+
+.friend-action {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 0.25rem;
+}
+
+.friend-time {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #9ca3af;
+}
+
+.friend-likes {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+/* ========== CAFE GRID SECTION ========== */
+.cafe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.cafe-card {
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+
+.cafe-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.cafe-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.cafe-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.cafe-visits {
+  font-size: 0.875rem;
+  font-weight: 900;
+  color: #22C55E;
+  margin-bottom: 0.25rem;
+}
+
+.cafe-discount {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
 /* ========== LEADERBOARD ========== */
 .leaderboard-list {
   display: flex;
@@ -539,25 +806,54 @@
   flex-shrink: 0;
 }
 
-.leaderboard-name {
+.leaderboard-info {
   flex: 1;
+}
+
+.leaderboard-name {
   font-size: 1rem;
   font-weight: 700;
   color: #000000;
+  margin-bottom: 0.25rem;
 }
 
 .leaderboard-row.is-me .leaderboard-name {
   color: #ffffff;
 }
 
+.leaderboard-region {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.leaderboard-row.is-me .leaderboard-region {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.leaderboard-stats {
+  text-align: right;
+}
+
 .leaderboard-score {
   font-size: 1rem;
   font-weight: 900;
   color: #000000;
+  margin-bottom: 0.25rem;
 }
 
 .leaderboard-row.is-me .leaderboard-score {
   color: #ffffff;
+}
+
+.leaderboard-streak {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6b7280;
+}
+
+.leaderboard-row.is-me .leaderboard-streak {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .leaderboard-footer {
@@ -794,6 +1090,10 @@
     font-size: 0.875rem;
   }
 
+  .character-text {
+    font-size: 0.75rem;
+  }
+
   .bb-streak-section {
     padding: 1.5rem 1rem;
   }
@@ -823,6 +1123,11 @@
     font-size: 1.5rem;
   }
 
+  .tab-btn {
+    font-size: 0.875rem;
+    padding: 0.875rem;
+  }
+
   .bb-section {
     padding: 1.5rem 1rem;
   }
@@ -835,12 +1140,24 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .cafe-grid {
+    grid-template-columns: 1fr;
+  }
+
   .impact-grid {
     grid-template-columns: 1fr;
   }
 
   .challenge-item {
     padding: 1rem;
+  }
+
+  .diary-card {
+    padding: 1rem;
+  }
+
+  .friend-activity-card {
+    padding: 0.875rem;
   }
 
   .bb-cta-section {

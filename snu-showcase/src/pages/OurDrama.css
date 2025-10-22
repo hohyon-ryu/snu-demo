@@ -62,6 +62,17 @@
   text-align: center;
 }
 
+.od-hero-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #EC4899;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
 .od-hero-title {
   font-size: 3rem;
   font-weight: 700;
@@ -73,8 +84,16 @@
 .od-hero-subtitle {
   font-size: 1.25rem;
   color: #717171;
-  margin: 0 0 3rem 0;
+  margin: 0 0 1rem 0;
   font-weight: 400;
+}
+
+.od-hero-description {
+  font-size: 1rem;
+  color: #222222;
+  margin: 0 0 3rem 0;
+  font-weight: 500;
+  font-style: italic;
 }
 
 /* Search Bar - Airbnb Style */
@@ -201,6 +220,16 @@
   border-color: #222222;
 }
 
+.od-filter-chip.od-filter-accessibility {
+  border-color: #EC4899;
+  color: #EC4899;
+}
+
+.od-filter-chip.od-filter-accessibility:hover {
+  background: #EC4899;
+  color: #ffffff;
+}
+
 /* Section Titles */
 .od-section-title {
   font-size: 1.75rem;
@@ -213,6 +242,40 @@
 /* Locations Section */
 .od-locations {
   padding: 3rem 2rem;
+}
+
+.od-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.od-sort-options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.od-sort-btn {
+  padding: 0.5rem 1rem;
+  background: #ffffff;
+  border: 1px solid #ebebeb;
+  color: #717171;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.od-sort-btn:hover {
+  border-color: #222222;
+  color: #222222;
+}
+
+.od-sort-btn.od-sort-active {
+  background: #f7f7f7;
+  border-color: #222222;
+  color: #222222;
 }
 
 .od-locations-grid {
@@ -259,6 +322,17 @@
   border: 1px solid #ebebeb;
 }
 
+.od-location-recent-badge {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: #EC4899;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
 .od-location-details {
   padding: 1.5rem;
 }
@@ -301,7 +375,43 @@
 .od-location-category {
   font-size: 0.875rem;
   color: #717171;
+  margin: 0 0 0.5rem 0;
+}
+
+.od-location-address {
+  font-size: 0.75rem;
+  color: #b0b0b0;
   margin: 0 0 1rem 0;
+}
+
+.od-accessibility-details {
+  background: #f7f7f7;
+  padding: 1rem;
+  margin: 0 0 1rem 0;
+  border: 1px solid #ebebeb;
+}
+
+.od-access-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.od-access-detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.od-access-detail-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #717171;
+}
+
+.od-access-detail-value {
+  font-size: 0.75rem;
+  color: #222222;
+  font-weight: 600;
 }
 
 .od-accessibility-tags {
@@ -317,6 +427,18 @@
   font-size: 0.75rem;
   font-weight: 600;
   color: #717171;
+}
+
+.od-access-tag.od-access-tag-has {
+  background: #e8f5e9;
+  border-color: #4caf50;
+  color: #2e7d32;
+}
+
+.od-access-tag.od-access-tag-none {
+  background: #ffebee;
+  border-color: #f44336;
+  color: #c62828;
 }
 
 /* Reviews Section */
@@ -400,9 +522,17 @@
   color: #222222;
 }
 
+.od-reviewer-type {
+  font-size: 0.75rem;
+  color: #EC4899;
+  font-weight: 600;
+  margin-top: 0.125rem;
+}
+
 .od-review-date {
   font-size: 0.75rem;
   color: #717171;
+  margin-top: 0.125rem;
 }
 
 .od-review-stars {
@@ -434,9 +564,79 @@
   align-items: center;
 }
 
+.od-section-subtitle {
+  font-size: 1rem;
+  color: #717171;
+  margin: -0.5rem 0 2rem 0;
+}
+
+.od-review-details {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.od-review-detail-badge {
+  padding: 0.25rem 0.75rem;
+  background: #f7f7f7;
+  border: 1px solid #ebebeb;
+  font-size: 0.75rem;
+  color: #717171;
+  font-weight: 600;
+}
+
+.od-review-difficulty {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid #ebebeb;
+}
+
+.od-difficulty-쉬움 {
+  background: #e8f5e9;
+  border-color: #4caf50;
+  color: #2e7d32;
+}
+
+.od-difficulty-보통 {
+  background: #fff3e0;
+  border-color: #ff9800;
+  color: #e65100;
+}
+
+.od-difficulty-어려움 {
+  background: #ffebee;
+  border-color: #f44336;
+  color: #c62828;
+}
+
+.od-review-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .od-photo-indicator {
   font-size: 0.75rem;
   font-weight: 600;
+  color: #EC4899;
+}
+
+.od-helpful-btn {
+  padding: 0.5rem 1rem;
+  background: #ffffff;
+  border: 1px solid #ebebeb;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #717171;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.od-helpful-btn:hover {
+  background: #f7f7f7;
+  border-color: #EC4899;
   color: #EC4899;
 }
 

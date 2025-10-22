@@ -569,6 +569,485 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* ========== ENVIRONMENTAL IMPACT SECTION ========== */
+.environmental-impact-section {
+  margin-bottom: 32px;
+}
+
+.tier-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.impact-equivalents-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.equiv-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  padding: 24px 20px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.equiv-card:hover {
+  border-color: #10B981;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.equiv-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.equiv-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #10B981;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.equiv-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B7280;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.equiv-detail {
+  font-size: 11px;
+  color: #9CA3AF;
+  font-weight: 500;
+}
+
+.tier-progress-container {
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  padding: 20px 24px;
+}
+
+.tier-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tier-progress-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.tier-progress-percent {
+  font-size: 16px;
+  font-weight: 700;
+  color: #10B981;
+  font-variant-numeric: tabular-nums;
+}
+
+.tier-progress-bar {
+  height: 12px;
+  background: #E5E7EB;
+  overflow: hidden;
+}
+
+.tier-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10B981 0%, #059669 100%);
+  transition: width 0.5s ease;
+}
+
+/* ========== MONTHLY TREND SECTION ========== */
+.monthly-trend-section {
+  margin-bottom: 32px;
+}
+
+.trend-charts-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.chart-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  padding: 24px;
+}
+
+.chart-title {
+  margin: 0 0 24px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 200px;
+  gap: 16px;
+  padding: 20px 0;
+}
+
+.bar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.bar-wrapper {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.bar-value-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.bar-column {
+  width: 100%;
+  max-width: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 20px;
+}
+
+.bar-fill {
+  width: 100%;
+  height: 100%;
+  background: #10B981;
+  transition: height 0.3s ease;
+}
+
+.bar-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B7280;
+  text-align: center;
+}
+
+.line-chart {
+  display: flex;
+  gap: 16px;
+  height: 200px;
+}
+
+.chart-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 500;
+  color: #9CA3AF;
+  padding: 10px 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-svg {
+  width: 100%;
+  height: 150px;
+  overflow: visible;
+}
+
+.chart-line {
+  fill: none;
+  stroke: #10B981;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-point {
+  fill: #FFFFFF;
+  stroke: #10B981;
+  stroke-width: 2;
+}
+
+.chart-x-labels {
+  display: flex;
+  justify-content: space-around;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6B7280;
+  margin-top: 8px;
+}
+
+.chart-legend {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.legend-item {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6B7280;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ========== ENHANCED CATEGORY CARDS ========== */
+.category-impact {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #F3F4F6;
+}
+
+.impact-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.impact-mini-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.impact-mini-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #059669;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ========== ENHANCED RECEIPT MODAL ========== */
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.item-detail-card {
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.item-name-col {
+  flex: 1;
+}
+
+.item-meta-row {
+  font-size: 12px;
+  color: #6B7280;
+  font-weight: 500;
+}
+
+.item-meta strong {
+  color: #111827;
+  font-size: 14px;
+}
+
+.item-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11px;
+  padding: 8px 0;
+  border-top: 1px solid #E5E7EB;
+}
+
+.info-icon {
+  font-size: 14px;
+}
+
+.item-info-text {
+  font-weight: 600;
+  color: #6B7280;
+  min-width: 80px;
+}
+
+.item-info-value {
+  color: #374151;
+  flex: 1;
+}
+
+.item-certifications {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px solid #E5E7EB;
+}
+
+.certification-badge {
+  display: inline-block;
+  background: #10B981;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.item-impact-row {
+  display: flex;
+  gap: 16px;
+  padding-top: 8px;
+  border-top: 1px solid #E5E7EB;
+}
+
+.item-impact-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mini-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #6B7280;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.mini-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #059669;
+  font-variant-numeric: tabular-nums;
+}
+
+.receipt-summary {
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.summary-row:not(:last-child) {
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.summary-row.highlight {
+  background: #FFFFFF;
+  margin: 12px -24px -20px -24px;
+  padding: 16px 24px;
+  border-top: 2px solid #10B981;
+}
+
+.summary-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B7280;
+}
+
+.summary-row.highlight .summary-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  font-variant-numeric: tabular-nums;
+}
+
+.summary-row.highlight .summary-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #10B981;
+}
+
+.impact-subtitle {
+  margin: -8px 0 16px 0;
+  font-size: 13px;
+  color: #059669;
+  font-weight: 500;
+}
+
+.receipt-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.action-button {
+  width: 100%;
+  background: #111827;
+  color: #FFFFFF;
+  border: none;
+  padding: 14px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.action-button:hover {
+  background: #10B981;
+}
+
+.auto-save-notice {
+  margin: 0;
+  font-size: 11px;
+  color: #9CA3AF;
+  text-align: center;
+}
+
 /* ========== RESPONSIVE DESIGN ========== */
 @media (max-width: 1024px) {
   .summary-grid {
@@ -576,6 +1055,14 @@
   }
 
   .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-equivalents-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trend-charts-container {
     grid-template-columns: 1fr;
   }
 }
@@ -637,6 +1124,10 @@
   }
 
   .impact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-equivalents-grid {
     grid-template-columns: 1fr;
   }
 }
