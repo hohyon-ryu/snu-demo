@@ -1048,8 +1048,327 @@
   text-align: center;
 }
 
+/* ========== HERO SUMMARY SECTION ========== */
+.hero-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.hero-card {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: #FFFFFF;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.hero-icon {
+  font-size: 48px;
+  opacity: 0.9;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.hero-value {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-description {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+/* ========== ENHANCED SUMMARY CARDS ========== */
+.summary-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.summary-trend {
+  font-size: 11px;
+  font-weight: 600;
+  color: #059669;
+  background: #D1FAE5;
+  padding: 4px 8px;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.summary-trend.positive {
+  color: #059669;
+  background: #D1FAE5;
+}
+
+.summary-detail {
+  font-size: 11px;
+  font-weight: 500;
+  color: #9CA3AF;
+  margin-top: 4px;
+}
+
+/* ========== SECTION DESCRIPTION ========== */
+.section-description {
+  font-size: 13px;
+  color: #6B7280;
+  font-weight: 500;
+  margin-left: 12px;
+}
+
+/* ========== ENHANCED ENVIRONMENTAL IMPACT ========== */
+.equiv-source {
+  font-size: 10px;
+  color: #9CA3AF;
+  font-weight: 500;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* ========== MONTHLY STATS TABLE ========== */
+.monthly-stats-table {
+  margin-top: 24px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  overflow-x: auto;
+}
+
+.monthly-stats-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.monthly-stats-table thead {
+  background: #F9FAFB;
+  border-bottom: 2px solid #E5E7EB;
+}
+
+.monthly-stats-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: #6B7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.monthly-stats-table td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #F3F4F6;
+}
+
+.monthly-stats-table tbody tr:hover {
+  background: #F9FAFB;
+}
+
+.monthly-stats-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ========== ENHANCED CHARTS ========== */
+.trend-charts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.chart-line.plastic {
+  stroke: #059669;
+}
+
+.chart-point.plastic {
+  fill: #FFFFFF;
+  stroke: #059669;
+}
+
+/* ========== INSIGHTS SECTION ========== */
+.insights-section {
+  margin-bottom: 32px;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.insight-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  padding: 20px 24px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.insight-card:hover {
+  border-color: #10B981;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.insight-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.insight-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6B7280;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 8px;
+}
+
+.insight-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #10B981;
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.insight-detail {
+  font-size: 11px;
+  color: #9CA3AF;
+  font-weight: 500;
+}
+
+/* ========== ENHANCED TRANSACTION TABLE ========== */
+.store-name {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 2px;
+}
+
+.store-location {
+  font-size: 11px;
+  color: #9CA3AF;
+  font-weight: 500;
+}
+
+.metric-value {
+  font-weight: 600;
+  color: #059669;
+}
+
+/* ========== ENHANCED RECEIPT MODAL ========== */
+.receipt-header-banner {
+  background: #10B981;
+  color: #FFFFFF;
+  padding: 16px 24px;
+  margin: -20px -24px 16px -24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+
+.banner-icon {
+  width: 32px;
+  height: 32px;
+  background: #FFFFFF;
+  color: #10B981;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.banner-text {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.receipt-store-info {
+  text-align: center;
+  padding: 12px 0 16px 0;
+  border-bottom: 2px solid #E5E7EB;
+  margin-bottom: 12px;
+}
+
+.store-name-large {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+
+.item-meta-separator {
+  color: #D1D5DB;
+  margin: 0 8px;
+}
+
+.item-info-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mini-icon {
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+.impact-highlight {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.impact-emoji {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.impact-title {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #059669;
+  line-height: 1.4;
+}
+
 /* ========== RESPONSIVE DESIGN ========== */
 @media (max-width: 1024px) {
+  .hero-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .trend-charts-container {
+    grid-template-columns: 1fr;
+  }
+
+  .insights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .summary-grid {
     grid-template-columns: repeat(2, 1fr);
   }
